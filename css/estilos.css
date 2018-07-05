@@ -1,0 +1,112 @@
+/* Efectos a todo el body */
+body{
+  font-family: Dancing Script;
+  font-size: 95%;
+  color: #02010a;
+}
+
+/* Contenido Principal */
+.contenido{
+  margin: auto;
+  padding: auto;
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+}
+h1{margin-left: 1em;}
+p{margin-left: 2em; margin-top: -5px;}
+img{box-shadow: 2px 2px  #02010a;}
+/* Versión Movil - Tamaño pantallas menores a 900px */
+@media (max-width:899px) {
+   .cabecera, .img_principal, .img_paisajes, .img_retratos, div[class*="pie_"], .galeria{
+    width: 100%;}
+    .pie_derechos{ border-radius: 0px 0px 10px 10px}
+  }
+/* Versión Desktop - Tamaño pantallas mayores a 900px */
+@media (min-width:900px) {
+  .contenido{
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+  .cabecera, .img_principal{ width: 100%; }
+  .img_paisajes, .img_retratos{ width: 50%; }
+
+  div[class*="pie_"]{flex-basis: 25%;}
+  .pie_contacto{ order: 1; flex-grow: 1;}
+  .pie_terminos{ order: 2; flex-grow: 1;}
+  .pie_redes{ order: 3; flex-grow: 1;}
+  .pie_derechos{ order: 4; flex-grow: 1;}
+
+  .cabecera h1{  float: left;}
+  .cabecera ul{  float: right;}
+  .pie_contacto{ border-radius: 0px 0px 0px 10px}
+  .pie_derechos{ border-radius: 0px 0px 10px 0px}
+
+  .galeria{flex-basis: 33.333%;}
+
+}
+/* Encabezado - header */
+.cabecera{
+  color: white;
+  background-color: #5b7989;
+  border-radius: 10px 10px 0px 0px;
+  animation: slidein 1.5s;
+}
+.cabecera h1{  margin: 0.5em 1em 0.5em 0.5em; text-align: center; text-shadow: 2px 2px #02010a;}
+.cabecera ul{  margin: 2.5em 1.5em 1.5em 1.5em;list-style-type: none; text-align: center;}
+.cabecera li{  display: inline-block; }
+.cabecera a, .cabecera a:visited{  color: white;  padding: 0.7em;}
+a.nolinea:link { text-decoration: none; }
+
+/* Imagen principal */
+.img_principal{ background-color: #82c3a6; }
+
+/* Imagenes Secundarias */
+.img_paisajes, .img_retratos{ background-color: #d5c75f; }
+.img_paisajes img, .img_retratos img{ border: 1px solid #02010a;}
+.img_paisajes a, .img_retratos a{ color: #02010a;}
+figure{ text-align: center; margin: 10px;}
+
+/* Pie de Pagina - footer */
+div [class*="pie_"]{ background-color: #C6d5c5; }
+
+/* Sombra a la imagen principal y secundarias */
+div[class*="img"] img{ width: 80%;}
+/* Efecto animacion con transition a imagen img_izquierda */
+#img_izquierda img{
+  transition: property: border;
+  transition: transform: rotate;
+  transition-duration: 1s;
+}
+#img_izquierda img:hover{
+  border: 2px solid #82c3a6;
+  transform: rotate(10deg);
+}
+/* Efecto animacion con transition a imagen img_derecha */
+#img_derecha img{
+  transition: property: border;
+  transition: transform: translate;
+  transition-duration: 1s;
+}
+#img_derecha img:hover{
+  border: 2px solid #82c3a6;;
+  transform: translate(20px, -5px);
+}
+
+/* Efecto animacion Slidein para el header */
+@-webkit-keyframes slidein{
+  0%{ margin-top: 150%;}
+  60%{ margin-top: -5%;}
+  100%{ margin-top: 0%;}
+}
+
+/* setup paginas html galerias*/
+.galeria{background-color: #d5c75f; min-height: 250px; }
+.galeria img{width: 93%; margin-top: 2.2em; margin-left: .7em;}
+.img_blur{filter: blur(10px); -webkit-filter: blur(10px);}
+.img_gris{filter: grayscale(100%); -webkit-filter: grayscale(100%);}
+.img_sepia{filter: sepia(90%); -webkit-filter: sepia(90%);}
